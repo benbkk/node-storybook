@@ -4,8 +4,16 @@ const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 const passport = require('passport')
 
+// Passsport COnffig
+require('./config/passport')(passport)
+
+// Load Routes
+const auth = require('./routes/auth')
+
+
 // Passport Config
 require('./config/passport')(passport)
+
 
 const app = express()
 app.use(express.static(path.join(__dirname, 'public')))
@@ -18,15 +26,13 @@ mongoose.connect('mongodb://localhost/storybook', {
   useNewUrlParser: true
 })
 
-// Load Routes
-const auth = require('./routes/auth')
-
 const port = process.env.PORT || 5000
 
 app.get('/', (req, res) => {
   res.send('It Works')
 })
 
+// Use Routes
 app.use('/auth', auth)
 
 app.listen(port, () => {
