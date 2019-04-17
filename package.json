@@ -1,0 +1,17 @@
+{
+  "name": "node-storybook",
+  "version": "1.0.0",
+  "description": "Simple story-sharing app built on node, express and mongodb",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev-start": "nodemon app.js"
+  },
+  "author": "Beta \"Ben\" Anggoro",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.5.2"
+  },
+  "devDependencies": {}
+}
